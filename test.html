@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <script src="libs/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <p>Call Purpose*</p>
+            </div>
+            <div class="col-sm-9">
+                <form>
+                    <div class="multiselect" style="position:absolute; background:#fff;">
+                        <div class="selectBox" onclick="showCheckboxes()">
+                            <select class="form-control input-sm">
+                                <option>Choose the reason the client called</option>
+                            </select>
+                            <div class="overSelect"></div>
+                        </div>
+                        <div id="checkboxes">
+                            <label for="thirteen">
+                                <input type="checkbox" id="thirteen" />Appeal</label>
+                            <label for="twelve">
+                                <input type="checkbox" id="twelve" />Application</label>
+                            <label for="two">
+                                <input type="checkbox" id="two" />Case Inquiry</label>
+                            <label for="fifteen">
+                                <input type="checkbox" id="fifteen" />Complaint</label>
+                            <label for="three">
+                                <input type="checkbox" id="three" />General Information Request</label>
+                            <label for="four">
+                                <input type="checkbox" id="four" />Health Marketplace Call</label>
+                            <label for="five">
+                                <input type="checkbox" id="five" />No Action Required</label>
+                            <label for="six">
+                                <input type="checkbox" id="six" />Provide Form or Corr</label>
+                            <label for="seven">
+                                <input type="checkbox" id="seven" />Provide Mobile App Assistance</label>
+                            <label for="eight">
+                                <input type="checkbox" id="eight" />Provide SSP Assistance</label>
+                            <label for="nine">
+                                <input type="checkbox" id="nine" />Questions about Missing Information</label>
+                            <label for="fourteen">
+                                <input type="checkbox" id="fourteen" />Redetermination</label>
+                            <label for="seventeen">
+                                <input type="checkbox" id="ReportChange" onclick="showChildView(this, 'take-change')" />Report Change</label>
+                            <label for="ten">
+                                <input type="checkbox" id="ten" />Reschedule/Update Appt</label>
+                            <label for="eleven">
+                                <input type="checkbox" id="eleven" />Special Mailing</label>
+                            <label for="sixteen">
+                                <input type="checkbox" id="sixteen" />Unlisted (Enter in Additional Comments)</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="section2">
+            <p>Call Action: </p>
+            <div id="divactions">
+                <!--div id="divMarketplace">
+                    <input id="cbHealth Marketplace Call" type="checkbox" value="Health Marketplace Call" onClick="handleVisibility(this)">Health Marketplace Call
+                    <br>
+                </div>
+                <div id="pHealth Marketplace Call" style="display:none">
+                    Health Marketplace:
+                    <select style="position:absolute; left:430px;">
+                        <option value=" CHIP to Medicaid Letter">
+                            CHIP to Medicaid Letter</option>
+                        <option value="CHIP to Medicaid Letter">CHIP Medicaid Letter</option>
+                        <option value="Client cannot access Marketplace">Client cannot access Marketplace</option>
+                        <option value="FFMApp">FFM Application</option>
+                        <option value="FFMOutreach">FFM Outreach</option>
+                        <option value="Information was provided">Information was provided</option>
+                        <option value="Marketplace eligibility for Medicaid">Marketplace eligibility for Medicaid</option>
+                    </select>
+                </div>
+                <div id="divTransfer">
+                    <input id="cbTransferRefer" type="checkbox" value="TransferRefer" onClick="handleVisibility(this)">Provide Mobile App Assistance
+                    <br>
+                </div>
+                <div id="pTransferTypes" style="display:none">
+                    Mobile App Assistance:
+                    <select style="position:absolute; left:430px;">
+                        <option value=" Created SSP Help Desk Ticket">
+                            Created SSP Help Desk Ticket </option>
+                        <option value=" Assisted with New Feature"> Assisted with New Feature </option>
+                        <option value=" Assisted with Upload"> Assisted with Upload </option>
+                        <option value=" Provided Mobile App Case Visibility"> Provided Mobile App Case Visibility </option>
+                        <option value=" Provided Mobile App Navigation"> Provided Mobile App Navigation </option>
+                        <option value=" Provided Mobile App Password Reset"> Provided Mobile App Password Reset </option>
+                    </select>
+                </div>
+                <div id="divMI">
+                    <input id="cbMI" type="checkbox" value="MI" onClick="handleVisibility(this)">MI
+                    <br>
+                </div>
+                <div id="pMI" style="display:none">
+                    Take MI:
+                    <select style="position:absolute; left:430px;">
+                        <option value=" Confirmation of Address">Confirmation of Address </option>
+                        <option value=" Confirmation of Address "> Confirmation of Address </option>
+                        <option value=" Cash on Hand "> Cash on Hand </option>
+                        <option value=" E&T Exemption "> E&T Exemption </option>
+                        <option value=" Family Violence Exemption Request "> Family Violence Exemption Request </option>
+                        <option value=" Household SSN "> Household SSN </option>
+                        <option value=" Information of Absent Parent "> Information of Absent Parent </option>
+                        <option value=" MI on File Prior to Denial "> MI on File Prior to Denial </option>
+                        <option value=" Places of Residence "> Places of Residence </option>
+                        <option value=" PRA Exemption "> PRA Exemption </option>
+                        <option value=" Pregnancy Due Date "> Pregnancy Due Date </option>
+                        <option value=" Questions about MI (None Taken) "> Questions about MI (None Taken) </option>
+                        <option value=" Receipt of SSI "> Receipt of SSI </option>
+                        <option value=" Tx Health Steps for CMA "> Tx Health Steps for CMA </option>
+                        <option value=" Work History "> Work History </option>
+                    </select>
+                </div>
+                <div id="divTransfer ">
+                    <input id="cbTransferRefer1 " type="checkbox " value="TransferRefer " onClick="handleVisibility(this) ">Provide Form or Corr
+                    <br>
+                </div>
+                <div id="pTransferTypes " style="display:none ">
+                    <form name="openfield ">
+                        Doc Sent:
+                        <input style="position:absolute; left:430px;" type=" text " name="Questions about MI ">
+                    </form>
+                </div>
+                <div id="divNoAction ">
+                    <input id="cbNo Action Required " type="checkbox " value="No Action Required " onClick="handleVisibility(this) ">Provide Information
+                    <br>
+                </div>
+                <div id="pNo Action Required " style="display:none ">
+                    Informaiton Provided:
+                    <select style="position:absolute; left:430px;">
+                        <option value=" Case Comments ">
+                            Case Comments </option>
+                        <option value=" Issuance Amount "> Issuance Amount </option>
+                        <option value=" Processing Time Frames "> Processing Time Frames </option>
+                        <option value=" Ways to Apply "> Ways to Apply </option>
+                        <option value=" Ways to Submit Changes "> Ways to Submit Changes </option>
+                        <option value=" Ways to Submit MI "> Ways to Submit MI </option>
+                    </select>
+                </div>
+                <div id="divTransfer ">
+                    <input id="cbTransferRefer " type="checkbox " value="TransferRefer " onClick="handleVisibility(this) ">Provide SSP Assistance
+                    <br>
+                </div>
+                <div id="pTransferTypes " style="display:none ">
+                    SSP Assistance:
+                    <select style="position:absolute; left:430px;">
+                        <option value=" Created SSP Help Desk Ticket ">
+                            Created SSP Help Desk Ticket </option>
+                        <option value=" Electronic Reminders "> Electronic Reminders </option>
+                        <option value=" Provided SSP Case Visibility "> Provided SSP Case Visibility </option>
+                        <option value=" Provided SSP Navigation Assistance "> Provided SSP Navigation Assistance </option>
+                        <option value=" Provided SSP Password Reset Assistance "> Provided SSP Password Reset Assistance </option>
+                        <option value=" SSP Redet "> SSP Redet </option>
+                    </select>
+                </div>
+                <div id="divTransfer ">
+                    <input id="cbTransferRefer " type="checkbox " value="TransferRefer " onClick="handleVisibility(this) ">Reschedule/Update Appt
+                    <br>
+                </div>
+                <div id="pTransferTypes " style="display:none ">
+                    Program:
+                    <select style="position:absolute; left:430px; ">
+                        <option value=" Adult Med ">
+                            Adult Med </option>
+                        <option value=" CMA "> CMA </option>
+                        <option value=" Combined "> Combined </option>
+                        <option value=" Pregnant Med "> Pregnant Med </option>
+                        <option value=" SNAP "> SNAP </option>
+                        <option value=" TANF "> TANF </option>
+                        <option value=" Verify "> Verify </option>
+                    </select>
+                    <div>
+                        Reschedule/Update:
+                        <select style="position:absolute; left:430px; ">
+                            <option value=" reschedule ">
+                                Rescheduled</option>
+                            <option value="Rescheduled ">Rescheduled</option>
+                            <option value="Updated ">Updated</option>
+                        </select>
+                    </div>
+                </div>
+            </div-->
+            </div>
+            <!-- end of section2 -->
+            <div class="section3">
+                <!--div id="divTransfer">
+                <input id="cbTransferRefer1" type="checkbox" value="TransferRefer" onClick="handleVisibility(this)">Special Mailing
+                <br>
+            </div>
+            <div id="pTransferTypes" style="display:none">
+                <form name="openfield">
+                    What Mailing?
+                    <input style="position:absolute; left:430px;" type="text" name="Questions about MI">
+                </form>
+            </div>
+            <div id="divTransfer">
+                <input id="cbTransferRefer" type="checkbox" value="TransferRefer" onClick="handleVisibility(this)">Take Appeal
+                <br>
+            </div>
+            <div id="pTransferTypes" style="display:none">
+                <form name="openfield">
+                    Appeal Number:
+                    <input style="position:absolute; left:430px;" type="text" name="Take Appeal">
+                </form>
+            </div-->
+                <div id="divTransfer">
+                    <input id="cbTransferRefer" class="take-change" type="checkbox" value="TransferRefer" onClick="handleVisibility(this)">Take Change
+                </div>
+                <div id="pTransferTypes" style="display:none">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Change Type(s):
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control input-sm" style="position:absolute;">
+                                <option value="	Absent Parent">Absent Parent </option>
+                                <option value="	Child Care"> Child Care </option>
+                                <option value="	Correction to Existing TIERS Data"> Correction to Existing TIERS Data </option>
+                                <option value="	HC- FFCHE Higher Ed	"> HC- FFCHE Higher Ed </option>
+                                <option value="	Household"> Household </option>
+                                <option value="	Income"> Income </option>
+                                <option value="	Issuance Address"> Issuance Address </option>
+                                <option value="	Mailing Address	"> Mailing Address </option>
+                                <option value="	MBIC Living Arrangement	"> MBIC Living Arrangement </option>
+                                <option value="	Medical Deductions	"> Medical Deductions </option>
+                                <option value="	Other"> Open field </option>
+                                <option value="	Phone Number	"> Phone Number </option>
+                                <option value="	Pregnancy	"> Pregnancy </option>
+                                <option value="	Residential Address	"> Residential Address </option>
+                                <option value="	Resources	"> Resources </option>
+                                <option value="	School Attendance	"> School Attendance </option>
+                                <option value="	Shelter Expenses	"> Shelter Expenses </option>
+                                <option value="	Third Party Resource	"> Third Party Resource </option>
+                                <option value="	Verbal Missing Information	"> Verbal Missing Information </option>
+                                <option value="	Voluntary Withdraw	"> Voluntary Withdraw </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="divTransfer">
+                    <input id="cbTransferRefer" type="checkbox" value="TransferRefer" onClick="handleVisibility(this)">Take Complaint
+                    <br>
+                </div>
+                <div id="pTransferTypes" style="display:none">
+                    <form name="openfield" class="row">
+                        <div>
+                            <div class="col-sm-3">
+                                HEART Tracking #:
+                            </div>
+                            <div class="col-sm-3">
+                                <input class="form-control input-sm" type="text" name="HEART Tracking #">
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Contact Reason(s):
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control input-sm">
+                                <option value="	Benefits Amount	">
+                                    Benefits Amount </option>
+                                <option value="	Benefits Not Issued/Not Received	"> Benefits Not Issued/Not Received </option>
+                                <option value="	CBO	"> CBO </option>
+                                <option value="	Civil Rights	"> Civil Rights </option>
+                                <option value="	EBT Card Problems	"> EBT Card Problems </option>
+                                <option value="	Eligibility	"> Eligibility </option>
+                                <option value="	ES Customer Service	"> ES Customer Service </option>
+                                <option value="	HHSC Customer Service- Known Worker	"> HHSC Customer Service- Known Worker </option>
+                                <option value="	HHSC Customer Service- Unknown Worker	"> HHSC Customer Service- Unknown Worker </option>
+                                <option value="	HIPAA	"> HIPAA </option>
+                                <option value="	Medicaid ID Card Problems	"> Medicaid ID Card Problems </option>
+                                <option value="	Medical Provider	"> Medical Provider </option>
+                                <option value="	Medical Transport	"> Medical Transport </option>
+                                <option value="	Other	"> Other </option>
+                                <option value="	Policy	"> Policy </option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="divTransfer">
+                    <input id="cbTransferRefer" type="checkbox" value="TransferRefer" onClick="handleVisibility(this)">Transfer/Refer
+                    <br>
+                </div>
+                <div id="pTransferTypes" style="display:none">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Transfer Types:
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control input-sm">
+                                <option value="	Escalated via CCI	">
+                                    Escalated via CCI </option>
+                                <option value="	Escalated via Internal Task Form	"> Escalated via Internal Task Form </option>
+                                <option value="	Escalated via PDF Form	"> Escalated via PDF Form </option>
+                                <option value="	Referred	"> Referred </option>
+                                <option value="	Transferred	"> Transferred </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Transfer Locations:
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control input-sm">
+                                <option value="Assigned Processing Location">Assigned Processing Location </option>
+                                <option value="	CBO	"> CBO </option>
+                                <option value="	CCC	"> CCC </option>
+                                <option value="	DADS	"> DADS </option>
+                                <option value="	ES Operations	"> ES Operations </option>
+                                <option value="	I&R	"> I&R </option>
+                                <option value="	LoneStar	"> LoneStar </option>
+                                <option value="	Managed Care	"> Managed Care </option>
+                                <option value="	MEHIS	"> MEHIS </option>
+                                <option value="	MEPD	"> MEPD </option>
+                                <option value="	Mitigation	"> Mitigation </option>
+                                <option value="	Open field	"> Open field </option>
+                                <option value="	SEU	"> SEU </option>
+                                <option value="	SLAQ	"> SLAQ </option>
+                                <option value="	Supervisor Queue	"> Supervisor Queue </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Transfer Reason:
+                        </div>
+                        <div class="col-sm-3">
+                            <form name="openfield">
+                                <input class="form-control input-sm" type="text" name="Transfer Reason">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--p>CCR Identified Actions:</p>
+                <div id="divMarketplace">
+                    Have you identified additional Actions that need to be completed?
+                </div>
+                <select>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select-->
+            </div>
+        </div>
+</body>
+
+</html>
